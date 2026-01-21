@@ -2,15 +2,20 @@ using UnityEngine;
 
 public class customer : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    
+    private void Start()
     {
-        
-    }
+        playEnterAnimation();
+        this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done
 
-    // Update is called once per frame
-    void Update()
+
+    }
+    void playEnterAnimation() // will fill in later with animation scripts
     {
-        
+
+    }
+    void playLeaveAnimation()
+    {
+
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class reputationMeter : MonoBehaviour
 {
     Slider reputation;
-    public float repValue = 0.75f;
+    public static float repValue = 0.75f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
