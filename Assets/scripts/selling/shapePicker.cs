@@ -3,7 +3,7 @@ using UnityEngine;
 public class shapePicker : MonoBehaviour
 {
     // this script is a simple example of a wider procedural generation system
-    SpriteRenderer sr;
+    public SpriteRenderer sr;
     public Sprite[] shapes;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -11,7 +11,7 @@ public class shapePicker : MonoBehaviour
         sr = GetComponent<SpriteRenderer>();   
     }
 
-    void pickRandomShape()
+    public void pickRandomShape()
     {
         if (Input.GetKey(KeyCode.Space))
         {

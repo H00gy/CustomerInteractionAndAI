@@ -2,15 +2,22 @@ using UnityEngine;
 
 public class spawner : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public GameObject itemPrefab;
+    int spawnCount = 0;
 
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            spawnItem();
+        }
+    }
+    void spawnItem()
+    {
+        GameObject spawnedItem = Instantiate(itemPrefab);
+        spawnCount++;
+        Debug.Log("spawned " + spawnedItem.name + " " + spawnCount);
         
     }
 }
