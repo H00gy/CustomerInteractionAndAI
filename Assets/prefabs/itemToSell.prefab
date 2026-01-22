@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61fe1f7294fab034cace7260345f658d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sr: {fileID: 5205088735152646707}
   shapes:
   - {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   - {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
@@ -115,6 +116,8 @@ GameObject:
   - component: {fileID: 4698236780280166537}
   - component: {fileID: 6283329298855503531}
   - component: {fileID: 8027026856503406046}
+  - component: {fileID: 1779164062142452706}
+  - component: {fileID: 3967949629481155116}
   m_Layer: 6
   m_Name: itemToSell
   m_TagString: Untagged
@@ -211,3 +214,29 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1779164062142452706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974429402945662726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efb9575c4a95da24d933ee09732e800f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 2974429402945662726}
+--- !u!114 &3967949629481155116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2974429402945662726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 714cf0adb07b7a04a8c417f3ba709dbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shapeP: {fileID: 4774009282768110856}

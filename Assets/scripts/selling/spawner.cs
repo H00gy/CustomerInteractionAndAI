@@ -17,7 +17,15 @@ public class spawner : MonoBehaviour
     {
         GameObject spawnedItem = Instantiate(itemPrefab);
         spawnCount++;
-        Debug.Log("spawned " + spawnedItem.name + " " + spawnCount);
-        
+        spawnedItem.name = $"item_{spawnCount}";
+        ItemInstance instance = spawnedItem.GetComponent<ItemInstance>();
+        if(instance == null)
+        {
+            Debug.LogWarning("Spawned item missing itemInstance component!");
+            return;
+        }
+        instance.Generate(); // calls its own generation
+
+
     }
 }
