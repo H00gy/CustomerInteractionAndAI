@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f700f422209a047ac7de1b35bffe7e, type: 3}
   m_Name: Triangle
   m_EditorClassIdentifier: 
-  objectShape: {fileID: 0}
-  priceRange: {x: 0, y: 0}
+  objectShape: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  priceRange: {x: 5, y: 15}

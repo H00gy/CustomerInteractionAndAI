@@ -5,6 +5,7 @@ public class reputationMeter : MonoBehaviour
 {
     Slider reputation;
     public static float repValue = 0.75f;
+    public float bargainModifier; 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -16,5 +17,6 @@ public class reputationMeter : MonoBehaviour
     void Update()
     {
         reputation.value = repValue;
+        
     }
 }

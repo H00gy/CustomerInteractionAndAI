@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 65f700f422209a047ac7de1b35bffe7e, type: 3}
   m_Name: square
   m_EditorClassIdentifier: 
-  objectShape: {fileID: 0}
-  priceRange: {x: 0, y: 0}
+  objectShape: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  priceRange: {x: 10, y: 25}
