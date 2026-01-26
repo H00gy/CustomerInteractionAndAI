@@ -3,8 +3,9 @@ using UnityEngine;
 public class spawner : MonoBehaviour
 {
     public GameObject itemPrefab;
-    int spawnCount = 0;
+    static int spawnCount = 0;
     public GameObject lastInstance;
+    public authenticityChecker checker;
 
     // Update is called once per frame
     void Update()
@@ -27,6 +28,7 @@ public class spawner : MonoBehaviour
         }
         instance.Generate(); // calls its own generation
         lastInstance= spawnedItem;
+        checker.checkAuthenticity(instance);
 
 
     }

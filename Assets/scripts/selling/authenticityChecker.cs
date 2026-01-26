@@ -31,7 +31,7 @@ public class authenticityChecker : MonoBehaviour
         }
 
         Sprite shapeSprite = item.shapeP.sr.sprite;
-        if (shapeSprite != null )
+        if (shapeSprite == null )
         {
             Debug.Log(item.name + " sprite missing");
             return;
