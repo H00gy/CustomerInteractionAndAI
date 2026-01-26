@@ -116,7 +116,6 @@ GameObject:
   - component: {fileID: 4698236780280166537}
   - component: {fileID: 6283329298855503531}
   - component: {fileID: 8027026856503406046}
-  - component: {fileID: 1779164062142452706}
   - component: {fileID: 3967949629481155116}
   m_Layer: 6
   m_Name: itemToSell
@@ -214,19 +213,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1779164062142452706
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2974429402945662726}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: efb9575c4a95da24d933ee09732e800f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 2974429402945662726}
 --- !u!114 &3967949629481155116
 MonoBehaviour:
   m_ObjectHideFlags: 0

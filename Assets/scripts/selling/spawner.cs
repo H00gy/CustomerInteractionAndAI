@@ -4,11 +4,12 @@ public class spawner : MonoBehaviour
 {
     public GameObject itemPrefab;
     int spawnCount = 0;
+    public GameObject lastInstance;
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             spawnItem();
         }
@@ -25,6 +26,7 @@ public class spawner : MonoBehaviour
             return;
         }
         instance.Generate(); // calls its own generation
+        lastInstance= spawnedItem;
 
 
     }
