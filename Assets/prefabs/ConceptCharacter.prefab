@@ -102,8 +102,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hagglePercent: 0
-  wants: []
-  dialogue: {fileID: 0}
+  wants:
+  - speech: I want square
+    want: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
+  - speech: I want Circle
+    want: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
+  - speech: I Want Triangle
+    want: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
+  dialogue: {fileID: 6231724853474396004}
 --- !u!1 &1874803498860273406
 GameObject:
   m_ObjectHideFlags: 0

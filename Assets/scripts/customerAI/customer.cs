@@ -48,7 +48,10 @@ public class customer : MonoBehaviour
     }
     void buy()
     {
-
+        // cycles through dialogue options 
+        int index = Random.Range(0, wants.Length);
+        customerWantsGroup group = wants[index];
+        dialogue.text = wants[index].speech;
     }
 
     void sell()
