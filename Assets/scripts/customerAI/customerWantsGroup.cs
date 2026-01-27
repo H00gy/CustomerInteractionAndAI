@@ -1,8 +1,9 @@
 using UnityEngine;
-using system
+
 
 [System.Serializable] 
 public class customerWantsGroup
 {
-    c
+    public string speech;
+    public Sprite want;
 }

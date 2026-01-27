@@ -1,11 +1,14 @@
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class customer : MonoBehaviour
 {
     
     bool customerPresent;
     public float hagglePercent;
-    public customerWantsGroup[] f;
+    public customerWantsGroup[] wants;
+    public TMP_Text dialogue; 
     
     private void Start()
     {
