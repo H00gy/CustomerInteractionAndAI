@@ -7,6 +7,7 @@ public class spawner : MonoBehaviour
     public GameObject lastInstance;
     public authenticityChecker checker;
 
+
     // Update is called once per frame
     void Update()
     {
@@ -20,6 +21,7 @@ public class spawner : MonoBehaviour
         GameObject spawnedItem = Instantiate(itemPrefab);
         spawnCount++;
         spawnedItem.name = $"item_{spawnCount}";
+        
         ItemInstance instance = spawnedItem.GetComponent<ItemInstance>();
         if(instance == null)
         {
@@ -29,6 +31,7 @@ public class spawner : MonoBehaviour
         instance.Generate(); // calls its own generation
         lastInstance= spawnedItem;
         checker.checkAuthenticity(instance);
+        spawnedItem.GetComponent<itemPriceStorage>().price = checker.price;
 
 
     }
