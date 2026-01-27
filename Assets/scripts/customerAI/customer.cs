@@ -5,6 +5,8 @@ public class customer : MonoBehaviour
     
     bool customerPresent;
     public float hagglePercent;
+    public customerWantsGroup[] f;
+    
     private void Start()
     {
         newCustomer();
