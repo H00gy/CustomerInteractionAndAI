@@ -67,6 +67,7 @@ public class customer : MonoBehaviour
         int index = Random.Range(0, wants.Length);
         customerWantsGroup group = wants[index];
         dialogue.text = wants[index].speech;
+        Debug.Log("want sprite " + wants[index].want.name);
         return group;
     }
 

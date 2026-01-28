@@ -41,7 +41,7 @@ public class InputHandler : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Debug.Log("Click started on: " + hit.collider.name);
+                //Debug.Log("Click started on: " + hit.collider.name);
                 isDragging = true;
                 draggedObject = hit.collider.transform;
 

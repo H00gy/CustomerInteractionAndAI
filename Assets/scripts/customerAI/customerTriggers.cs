@@ -26,8 +26,11 @@ public class customerTriggers : MonoBehaviour
                 Debug.Log("Thank you!");
                 Destroy(other.gameObject);
                 customerAI.playLeaveAnimation();
+                
                 transaction += other.GetComponent<itemPriceStorage>().price;// adds price
+                //Debug.Log("the transaction value is " + transaction);
                 money.currencyText.text = transaction.ToString(); // currency count txt
+                
                 Destroy(this.gameObject);
                 customerAI.customerPresent = false;
                 // currency change will occur here, possibly also destroy npc
@@ -36,7 +39,7 @@ public class customerTriggers : MonoBehaviour
             {
                 Debug.Log("item sr not found");
             }
-            else
+            else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.buyingGroup().want)
             {
                 Debug.Log("I don't want that >:(");
                 Destroy(this.gameObject);

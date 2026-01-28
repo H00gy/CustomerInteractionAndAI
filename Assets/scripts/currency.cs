@@ -9,9 +9,14 @@ public class currency : MonoBehaviour
     private void Start()
     {
         currencyAmount = 100f;
+        currencyText.text = currencyAmount.ToString();
     }
     private void Update()
     {
-        currencyText.text = currencyAmount.ToString();
+        //currencyText.text = currencyAmount.ToString();
+    }
+    public float returnCurrencyAmount()
+    {
+        return currencyAmount;
     }
 }
