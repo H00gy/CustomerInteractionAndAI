@@ -10,7 +10,7 @@ public class customer : MonoBehaviour
     public float hagglePercent;
     public customerWantsGroup[] wants;
     public TMP_Text dialogue;
-    public Sprite currentShape;
+    public Sprite currentShape; // sets the want shape for this specific customer
     
     private void Start()
     {
