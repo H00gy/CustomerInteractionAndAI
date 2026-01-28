@@ -25,7 +25,8 @@ public class customer : MonoBehaviour
         //bargainMultiplier = reputationMeter.repValue;
         playEnterAnimation();
         this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done
-
+        buy(); // temp for testing
+        /*
         // calls buying or selling
         bool buyOrSell = Random.value > 0.5f; // coin toss
         if (buyOrSell)
@@ -38,6 +39,9 @@ public class customer : MonoBehaviour
             Debug.Log("sell");
             sell();
         }
+        */
+        
+        
     }
     void playEnterAnimation() // will fill in later with animation scripts
     {
@@ -50,12 +54,20 @@ public class customer : MonoBehaviour
     void buy()
     {
         isBuying = true;
+        buyingGroup();
+        
+        return;
+        
+
+
+    }
+    public customerWantsGroup buyingGroup()
+    {
         // cycles through dialogue options 
         int index = Random.Range(0, wants.Length);
         customerWantsGroup group = wants[index];
         dialogue.text = wants[index].speech;
-
-
+        return group;
     }
 
     void sell()

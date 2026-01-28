@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7847419478414227857}
   - component: {fileID: 479953542175320044}
   - component: {fileID: -4527176609567172344}
+  - component: {fileID: 2687650082210734614}
   m_Layer: 0
   m_Name: ConceptCharacter
   m_TagString: Untagged
@@ -158,6 +159,18 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1.6666666, y: 1.6041666}
   m_EdgeRadius: 0
+--- !u!114 &2687650082210734614
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59309207669157826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c45eff9c480e64db219432615d8859, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1874803498860273406
 GameObject:
   m_ObjectHideFlags: 0

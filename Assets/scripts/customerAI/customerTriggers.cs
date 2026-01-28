@@ -11,11 +11,13 @@ public class customerTriggers : MonoBehaviour
     {
         if(customerAI.isBuying && other.CompareTag("item"))
         {
-            if (other.gameObject.GetComponent<SpriteRenderer>() != null && other.gameObject.GetComponent<SpriteRenderer>().sprite == customerAI.buyingGroup().want) // checks if sr exists and then compares want and obj
+            if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.buyingGroup().want) // checks if sr exists and then compares want and obj
             {
                 Debug.Log("Thanks you!");
+                Destroy(other.gameObject);
+                // currency change will occur here, possibly also destroy npc
             }
-            else if (other.gameObject.GetComponent<SpriteRenderer>() == null)
+            else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)
             {
                 Debug.Log("item sr not found");
             }
