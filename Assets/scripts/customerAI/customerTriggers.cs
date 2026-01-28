@@ -13,8 +13,11 @@ public class customerTriggers : MonoBehaviour
         {
             if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.buyingGroup().want) // checks if sr exists and then compares want and obj
             {
-                Debug.Log("Thanks you!");
+                Debug.Log("Thank you!");
                 Destroy(other.gameObject);
+                customerAI.playLeaveAnimation();
+                Destroy(this.gameObject);
+                customerAI.customerPresent = false;
                 // currency change will occur here, possibly also destroy npc
             }
             else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)
@@ -24,6 +27,7 @@ public class customerTriggers : MonoBehaviour
             else
             {
                 Debug.Log("I don't want that >:(");
+                Destroy(this.gameObject);
             }
         }
     }

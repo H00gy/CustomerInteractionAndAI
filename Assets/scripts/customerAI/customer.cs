@@ -5,7 +5,7 @@ using TMPro;
 public class customer : MonoBehaviour
 {
     
-    bool customerPresent;
+    public bool customerPresent;
     public bool isBuying; 
     public float hagglePercent;
     public customerWantsGroup[] wants;
@@ -43,11 +43,11 @@ public class customer : MonoBehaviour
         
         
     }
-    void playEnterAnimation() // will fill in later with animation scripts
+    public void playEnterAnimation() // will fill in later with animation scripts
     {
 
     }
-    void playLeaveAnimation()
+    public void playLeaveAnimation()
     {
 
     }
