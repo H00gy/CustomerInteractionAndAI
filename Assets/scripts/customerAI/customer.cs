@@ -9,7 +9,8 @@ public class customer : MonoBehaviour
     public bool isBuying; 
     public float hagglePercent;
     public customerWantsGroup[] wants;
-    public TMP_Text dialogue; 
+    public TMP_Text dialogue;
+    public Sprite currentShape;
     
     private void Start()
     {
@@ -54,7 +55,7 @@ public class customer : MonoBehaviour
     void buy()
     {
         isBuying = true;
-        buyingGroup();
+        currentShape = buyingGroup().want;
         
         return;
         
@@ -82,11 +83,11 @@ public class customer : MonoBehaviour
        
        if (randomValue < hagglePercent)
        {
-            Debug.Log("haggle engaged");
+            //Debug.Log("haggle engaged");
        }
        else
        {
-            Debug.Log("no haggle");
+            //Debug.Log("no haggle");
        }
 
     }

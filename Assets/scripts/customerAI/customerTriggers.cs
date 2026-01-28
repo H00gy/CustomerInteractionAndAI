@@ -21,7 +21,7 @@ public class customerTriggers : MonoBehaviour
     {
         if(customerAI.isBuying && other.CompareTag("item"))
         {
-            if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.buyingGroup().want) // checks if sr exists and then compares want and obj
+            if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
             {
                 Debug.Log("Thank you!");
                 Destroy(other.gameObject);
@@ -39,7 +39,7 @@ public class customerTriggers : MonoBehaviour
             {
                 Debug.Log("item sr not found");
             }
-            else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.buyingGroup().want)
+            else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
             {
                 Debug.Log("I don't want that >:(");
                 Destroy(this.gameObject);
