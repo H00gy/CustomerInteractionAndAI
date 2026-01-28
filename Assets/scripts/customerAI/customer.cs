@@ -6,6 +6,7 @@ public class customer : MonoBehaviour
 {
     
     bool customerPresent;
+    public bool isBuying; 
     public float hagglePercent;
     public customerWantsGroup[] wants;
     public TMP_Text dialogue; 
@@ -48,10 +49,13 @@ public class customer : MonoBehaviour
     }
     void buy()
     {
+        isBuying = true;
         // cycles through dialogue options 
         int index = Random.Range(0, wants.Length);
         customerWantsGroup group = wants[index];
         dialogue.text = wants[index].speech;
+
+
     }
 
     void sell()
@@ -73,7 +77,7 @@ public class customer : MonoBehaviour
        }
 
     }
+
     
-        
-    
+
 }

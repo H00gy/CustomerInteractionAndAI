@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6579304325817512412}
   - component: {fileID: 7847419478414227857}
   - component: {fileID: 479953542175320044}
+  - component: {fileID: -4527176609567172344}
   m_Layer: 0
   m_Name: ConceptCharacter
   m_TagString: Untagged
@@ -101,6 +102,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1e092784119a9a428c7e0b80b89ff36, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isBuying: 0
   hagglePercent: 0
   wants:
   - speech: I want square
@@ -110,6 +112,52 @@ MonoBehaviour:
   - speech: I Want Triangle
     want: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   dialogue: {fileID: 6231724853474396004}
+--- !u!61 &-4527176609567172344
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 59309207669157826}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_CompositeOperation: 0
+  m_CompositeOrder: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1.6666666, y: 1.6041666}
+    newSize: {x: 1.6666666, y: 1.6041666}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Size: {x: 1.6666666, y: 1.6041666}
+  m_EdgeRadius: 0
 --- !u!1 &1874803498860273406
 GameObject:
   m_ObjectHideFlags: 0

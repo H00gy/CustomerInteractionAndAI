@@ -1,0 +1,28 @@
+using UnityEngine;
+
+public class customerTriggers : MonoBehaviour
+{
+    customer customerAI;
+    private void Start()
+    {
+        customerAI = GetComponent<customer>();
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(customerAI.isBuying && other.CompareTag("item"))
+        {
+            if (other.gameObject.GetComponent<SpriteRenderer>() != null && other.gameObject.GetComponent<SpriteRenderer>().sprite == customerAI.buyingGroup().want) // checks if sr exists and then compares want and obj
+            {
+                Debug.Log("Thanks you!");
+            }
+            else if (other.gameObject.GetComponent<SpriteRenderer>() == null)
+            {
+                Debug.Log("item sr not found");
+            }
+            else
+            {
+                Debug.Log("I don't want that >:(");
+            }
+        }
+    }
+}

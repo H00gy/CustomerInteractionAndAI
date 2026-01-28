@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 1384580029676436923}
   m_Layer: 6
   m_Name: itemToSell
-  m_TagString: Untagged
+  m_TagString: item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -239,4 +239,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c8ec916ba0ce3f47a3d59e9f73ec86f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  checker: {fileID: 0}
+  price: 0
