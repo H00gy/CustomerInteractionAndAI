@@ -3,9 +3,19 @@ using UnityEngine;
 public class customerTriggers : MonoBehaviour
 {
     customer customerAI;
+    currency money;
+    float transaction;
+    
     private void Start()
     {
         customerAI = GetComponent<customer>();
+        money = GameObject.FindWithTag("currencyCount").GetComponent<currency>();
+        if (money == null)
+        {
+            Debug.Log("couldn't find currency");
+            return;
+        }
+        transaction = money.returnCurrencyAmount();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -16,6 +26,8 @@ public class customerTriggers : MonoBehaviour
                 Debug.Log("Thank you!");
                 Destroy(other.gameObject);
                 customerAI.playLeaveAnimation();
+                transaction += other.GetComponent<itemPriceStorage>().price;// adds price
+                money.currencyText.text = transaction.ToString(); // currency count txt
                 Destroy(this.gameObject);
                 customerAI.customerPresent = false;
                 // currency change will occur here, possibly also destroy npc
