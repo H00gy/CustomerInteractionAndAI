@@ -30,7 +30,7 @@ public class customerTriggers : MonoBehaviour
                 
                 transaction += other.GetComponent<itemPriceStorage>().price;// adds price
                 //Debug.Log("the transaction value is " + transaction);
-                money.currencyText.text = transaction.ToString(); // currency count txt
+                money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
                 
                 Destroy(this.gameObject);
                 customerAI.customerPresent = false;

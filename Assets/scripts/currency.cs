@@ -5,10 +5,10 @@ using TMPro;
 public class currency : MonoBehaviour
 {
     public static float currencyAmount;
-    public float currentCurrency;
     public TMP_Text currencyText;
     private void Awake()
     {
+        // if there are more scenes, an if statement here for the first scene only
         currencyAmount = 100f;
         currencyText.text = currencyAmount.ToString();
     }
@@ -18,9 +18,7 @@ public class currency : MonoBehaviour
     }
     public float returnCurrencyAmount()
     {
-        // returnCurrencyAmount is returning zero, need to get it to return the Start() value
-        Debug.Log("returnCurrency method amount " + currencyAmount);
-        currentCurrency= currencyAmount;
+        //Debug.Log("returnCurrency method amount " + currencyAmount);
         return currencyAmount;
     }
 }
