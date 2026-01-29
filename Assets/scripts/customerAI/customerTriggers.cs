@@ -16,6 +16,7 @@ public class customerTriggers : MonoBehaviour
             return;
         }
         transaction = money.returnCurrencyAmount();
+        Debug.Log("transaction value " + transaction);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {

@@ -22,6 +22,7 @@ public class spawner : MonoBehaviour
         spawnCount++;
         spawnedItem.name = $"item_{spawnCount}";
         
+        
         ItemInstance instance = spawnedItem.GetComponent<ItemInstance>();
         if(instance == null)
         {

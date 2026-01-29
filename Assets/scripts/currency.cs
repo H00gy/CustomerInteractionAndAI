@@ -5,6 +5,7 @@ using TMPro;
 public class currency : MonoBehaviour
 {
     public static float currencyAmount;
+    public float currentCurrency;
     public TMP_Text currencyText;
     private void Start()
     {
@@ -13,10 +14,13 @@ public class currency : MonoBehaviour
     }
     private void Update()
     {
-        //currencyText.text = currencyAmount.ToString();
+        
     }
     public float returnCurrencyAmount()
     {
-        return currencyAmount;
+        // returnCurrencyAmount is returning zero, need to get it to return the Start() value
+        Debug.Log("returnCurrency method amount " + currencyAmount);
+        currentCurrency= currencyAmount;
+        return currentCurrency;
     }
 }
