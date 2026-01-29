@@ -11,10 +11,16 @@ public class customer : MonoBehaviour
     public customerWantsGroup[] wants;
     public TMP_Text dialogue;
     public Sprite currentShape; // sets the want shape for this specific customer
-    public GameObject customerPrefab;
+    SpawnNewCustomer customerSpawner;
     
     private void Start()
     {
+        customerSpawner = GameObject.FindWithTag("currencyCount").GetComponent<SpawnNewCustomer>();
+        if (customerSpawner == null)
+        {
+            Debug.Log("couldn't find customer spawner");
+            return;
+        }
         newCustomer();
         
 
@@ -22,11 +28,14 @@ public class customer : MonoBehaviour
     }
     void newCustomer()
     {
+        customerSpawner.spawnCustomer();
+        //transform.gameObject = customerSpawner;
         // sets placement
-        customerPresent= true;
+        customerPresent = true;
         //bargainMultiplier = reputationMeter.repValue;
+
+        this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
         
-        this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done
         buy(); // temp for testing
         /*
         // calls buying or selling
@@ -51,7 +60,8 @@ public class customer : MonoBehaviour
     }
     public void playLeaveAnimation(GameObject prefab)
     {
-
+        customerPresent= false;
+        Debug.Log("customerPresent? " + customerPresent);
     }
     void buy()
     {
@@ -96,7 +106,7 @@ public class customer : MonoBehaviour
        }
 
     }
-
+   
     
 
     

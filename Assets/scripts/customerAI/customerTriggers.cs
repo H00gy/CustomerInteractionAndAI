@@ -36,7 +36,7 @@ public class customerTriggers : MonoBehaviour
                 
                 
                
-                customerAI.customerPresent = false; // safeguard might remove
+                customerAI.customerPresent = false; // safeguard 
                 // currency change will occur here, possibly also destroy npc
             }
             else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)
