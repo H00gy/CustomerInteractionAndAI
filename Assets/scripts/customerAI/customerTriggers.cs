@@ -24,16 +24,19 @@ public class customerTriggers : MonoBehaviour
         {
             if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
             {
+                // customer leaving
                 Debug.Log("Thank you!");
                 Destroy(other.gameObject);
-                customerAI.playLeaveAnimation();
-                
+                customerAI.playLeaveAnimation(this.gameObject);
+                Destroy(this.gameObject);
+
+                // money change
                 transaction += other.GetComponent<itemPriceStorage>().price;// adds price
-                //Debug.Log("the transaction value is " + transaction);
                 money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
                 
-                Destroy(this.gameObject);
-                customerAI.customerPresent = false;
+                
+               
+                customerAI.customerPresent = false; // safeguard might remove
                 // currency change will occur here, possibly also destroy npc
             }
             else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)

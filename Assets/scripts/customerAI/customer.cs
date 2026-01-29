@@ -11,6 +11,7 @@ public class customer : MonoBehaviour
     public customerWantsGroup[] wants;
     public TMP_Text dialogue;
     public Sprite currentShape; // sets the want shape for this specific customer
+    public GameObject customerPrefab;
     
     private void Start()
     {
@@ -24,7 +25,7 @@ public class customer : MonoBehaviour
         // sets placement
         customerPresent= true;
         //bargainMultiplier = reputationMeter.repValue;
-        playEnterAnimation();
+        
         this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done
         buy(); // temp for testing
         /*
@@ -44,11 +45,11 @@ public class customer : MonoBehaviour
         
         
     }
-    public void playEnterAnimation() // will fill in later with animation scripts
+    public void playEnterAnimation(GameObject prefab) // will fill in later with animation scripts
     {
 
     }
-    public void playLeaveAnimation()
+    public void playLeaveAnimation(GameObject prefab)
     {
 
     }
@@ -57,7 +58,11 @@ public class customer : MonoBehaviour
         isBuying = true;
         currentShape = buyingGroup().want; // makes sure it's currently stored
         
-        return;
+        if (isBuying == false)
+        {
+            return;
+        }
+        
         
 
 
@@ -91,6 +96,8 @@ public class customer : MonoBehaviour
        }
 
     }
+
+    
 
     
 

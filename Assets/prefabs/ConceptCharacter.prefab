@@ -114,6 +114,8 @@ MonoBehaviour:
   - speech: I Want Triangle
     want: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
   dialogue: {fileID: 6231724853474396004}
+  currentShape: {fileID: 0}
+  customerPrefab: {fileID: 59309207669157826}
 --- !u!61 &-4527176609567172344
 BoxCollider2D:
   m_ObjectHideFlags: 0
