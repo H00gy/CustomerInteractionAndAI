@@ -7,7 +7,7 @@ public class currency : MonoBehaviour
     public static float currencyAmount;
     public float currentCurrency;
     public TMP_Text currencyText;
-    private void Start()
+    private void Awake()
     {
         currencyAmount = 100f;
         currencyText.text = currencyAmount.ToString();
@@ -21,6 +21,6 @@ public class currency : MonoBehaviour
         // returnCurrencyAmount is returning zero, need to get it to return the Start() value
         Debug.Log("returnCurrency method amount " + currencyAmount);
         currentCurrency= currencyAmount;
-        return currentCurrency;
+        return currencyAmount;
     }
 }

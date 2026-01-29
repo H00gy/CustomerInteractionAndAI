@@ -55,7 +55,7 @@ public class customer : MonoBehaviour
     void buy()
     {
         isBuying = true;
-        currentShape = buyingGroup().want;
+        currentShape = buyingGroup().want; // makes sure it's currently stored
         
         return;
         
