@@ -23,11 +23,13 @@ public class customerTriggers : MonoBehaviour
             return;
         }
         transaction = money.returnCurrencyAmount();
-        Debug.Log("transaction value " + transaction);
+        Debug.Log("Start transaction value " + transaction);
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(customerAI.isBuying && other.CompareTag("item"))
+        //transaction = money.returnCurrencyAmount();
+        //Debug.Log("Start transaction value " + transaction);
+        if (customerAI.isBuying && other.CompareTag("item"))
         {
             if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
             {
@@ -39,6 +41,9 @@ public class customerTriggers : MonoBehaviour
 
                 // money change
                 transaction += other.GetComponent<itemPriceStorage>().price;// adds price
+                Debug.Log("bought transaction value is " + transaction);
+                money.tempCurrentAmount= transaction;
+                Debug.Log("get current amount value is " + money.returnCurrencyAmount());
                 money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
                 
                 
@@ -53,6 +58,8 @@ public class customerTriggers : MonoBehaviour
             else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
             {
                 Debug.Log("I don't want that >:(");
+                customerAI.playLeaveAnimation(other.gameObject);
+                //customerSpawner.customerPresent = false;
                 Destroy(this.gameObject);
             }
         }

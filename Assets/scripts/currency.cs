@@ -6,6 +6,7 @@ public class currency : MonoBehaviour
 {
     public static float currencyAmount;
     public TMP_Text currencyText;
+    public float tempCurrentAmount;
     private void Awake()
     {
         // if there are more scenes, an if statement here for the first scene only
@@ -14,7 +15,7 @@ public class currency : MonoBehaviour
     }
     private void Update()
     {
-        
+        currencyAmount = tempCurrentAmount;
     }
     public float returnCurrencyAmount()
     {

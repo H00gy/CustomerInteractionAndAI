@@ -15,7 +15,6 @@ public class customer : MonoBehaviour
     
     private void Start()
     {
-        Debug.Log("customer start called");
         customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
         if (customerSpawner == null)
         {
@@ -61,7 +60,8 @@ public class customer : MonoBehaviour
     }
     public void playLeaveAnimation(GameObject prefab)
     {
-        customerPresent= false;
+        
+        customerPresent= false;// I would like to fix this later but not required now
         Debug.Log("customerPresent? " + customerPresent);
     }
     void buy()
