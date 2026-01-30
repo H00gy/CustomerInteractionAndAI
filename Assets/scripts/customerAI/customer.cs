@@ -1,10 +1,12 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
 
 public class customer : MonoBehaviour
 {
-    
+    public BoxCollider2D bc;
     public bool customerPresent;
     public bool isBuying; 
     public float hagglePercent;
@@ -20,6 +22,7 @@ public class customer : MonoBehaviour
     
     private void Start()
     {
+        bc = GetComponent<BoxCollider2D>();
         customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
         if (customerSpawner == null)
         {
@@ -59,22 +62,22 @@ public class customer : MonoBehaviour
         
         
     }
-    public void playEnterAnimation(GameObject prefab) // will fill in later with animation scripts
-    {
-        float inMovt = speed * Time.deltaTime;
-        prefab.transform.position = Vector2.MoveTowards(transform.position, inScenePos, inMovt);
-        customerSpawner.customerPresent= true;
-
-    }
+    
     public void playLeaveAnimation(GameObject prefab)
     {
+        
+        customerSpawner.customerPresent = false;
+        prefab.transform.position = outScenePos;
+        
+        /*
         Debug.Log("called leave anim");
         Debug.Log("customer position prior to leave is " + prefab.transform.position);
         float awayMovt = speed * Time.deltaTime;
         prefab.transform.position = Vector2.MoveTowards(transform.position,outScenePos,awayMovt);
         Debug.Log("customer position after leave is " + prefab.transform.position);
         //prefab.transform.position = new Vector2(-100f, 0);
-        customerSpawner.customerPresent = false;
+        */
+        
         
         
         
@@ -123,6 +126,7 @@ public class customer : MonoBehaviour
        }
 
     }
+    
    
     
 

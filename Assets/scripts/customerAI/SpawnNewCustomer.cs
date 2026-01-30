@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnNewCustomer : MonoBehaviour
 {
@@ -7,14 +9,21 @@ public class SpawnNewCustomer : MonoBehaviour
     static int spawnCount = 0;
     private void Awake()
     {
-        spawnCustomer();
-        
+
+        StartCoroutine(SpawnLoop());
+
     }
-    private void Update()
+    private IEnumerator SpawnLoop()
     {
-        if (customerPresent == false)
+        while (true)
         {
-            spawnCustomer();
+            if (!customerPresent)
+            {
+                yield return new WaitForSeconds(2);
+                spawnCustomer();
+            }
+
+            yield return null; // wait one frame
         }
     }
     public GameObject spawnCustomer()
@@ -28,5 +37,7 @@ public class SpawnNewCustomer : MonoBehaviour
         Debug.Log("customer is " + newCustomer.name);
         return newCustomer;
     }
+    
+
 
 }
