@@ -5,10 +5,17 @@ public class customerTriggers : MonoBehaviour
     customer customerAI;
     currency money;
     float transaction;
+    SpawnNewCustomer customerSpawner;
     
     private void Start()
     {
         customerAI = GetComponent<customer>();
+        customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
+        if (customerSpawner == null)
+        {
+            Debug.Log("couldn't find customer span");
+            return;
+        }
         money = GameObject.FindWithTag("currencyCount").GetComponent<currency>();
         if (money == null)
         {
@@ -36,7 +43,7 @@ public class customerTriggers : MonoBehaviour
                 
                 
                
-                customerAI.customerPresent = false; // safeguard 
+                customerSpawner.customerPresent = false; // safeguard 
                 // currency change will occur here, possibly also destroy npc
             }
             else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)

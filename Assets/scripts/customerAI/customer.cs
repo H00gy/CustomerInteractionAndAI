@@ -15,10 +15,11 @@ public class customer : MonoBehaviour
     
     private void Start()
     {
-        customerSpawner = GameObject.FindWithTag("currencyCount").GetComponent<SpawnNewCustomer>();
+        Debug.Log("customer start called");
+        customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
         if (customerSpawner == null)
         {
-            Debug.Log("couldn't find customer spawner");
+            Debug.Log("couldn't find customer span");
             return;
         }
         newCustomer();
@@ -28,13 +29,13 @@ public class customer : MonoBehaviour
     }
     void newCustomer()
     {
-        customerSpawner.spawnCustomer();
-        //transform.gameObject = customerSpawner;
+        Debug.Log("called this");
+        //customerSpawner.spawnCustomer();
         // sets placement
         customerPresent = true;
         //bargainMultiplier = reputationMeter.repValue;
 
-        this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
+        //this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
         
         buy(); // temp for testing
         /*
