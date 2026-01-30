@@ -738,9 +738,10 @@ GameObject:
   - component: {fileID: 1382794536}
   - component: {fileID: 1382794535}
   - component: {fileID: 1382794538}
+  - component: {fileID: 1382794539}
   m_Layer: 0
   m_Name: gameManager
-  m_TagString: Untagged
+  m_TagString: gameManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -837,6 +838,20 @@ MonoBehaviour:
   itemPrefab: {fileID: 2974429402945662726, guid: 9bcc0301ebbbb0c499ad649e4f7a0c96, type: 3}
   lastInstance: {fileID: 0}
   checker: {fileID: 1634526519}
+--- !u!114 &1382794539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1382794534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7265b53178a8d28459614468024b109e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  customerPrefab: {fileID: 59309207669157826, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
+  customerPresent: 0
 --- !u!1 &1517190360
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,6 +1130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currencyText: {fileID: 1669224195}
+  tempCurrentAmount: 0
 --- !u!114 &1669224195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1533,63 +1549,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &3878223740602687350
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 59309207669157826, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_Name
-      value: ConceptCharacter
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -4.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.81
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6579304325817512412, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 0956d4cecd87d7f4db9638744103cdcd, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1600,4 +1559,3 @@ SceneRoots:
   - {fileID: 804093994}
   - {fileID: 1538641846}
   - {fileID: 1863439745}
-  - {fileID: 3878223740602687350}

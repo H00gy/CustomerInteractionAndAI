@@ -57,7 +57,7 @@ public class customerTriggers : MonoBehaviour
             else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
             {
                 Debug.Log("I don't want that >:(");
-                customerAI.playLeaveAnimation(other.gameObject);
+                customerAI.playLeaveAnimation(this.gameObject);
                 //customerSpawner.customerPresent = false;
                 Destroy(this.gameObject);
             }

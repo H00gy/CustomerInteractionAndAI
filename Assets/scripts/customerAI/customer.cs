@@ -12,6 +12,11 @@ public class customer : MonoBehaviour
     public TMP_Text dialogue;
     public Sprite currentShape; // sets the want shape for this specific customer
     SpawnNewCustomer customerSpawner;
+
+    // temp animation variables (this is all placeholder until I make animations for the actual game)
+    public float speed = 5f;
+    public Vector2 outScenePos = new Vector2(-100f, 0);
+    public Vector2 inScenePos = new Vector2(0, 0);
     
     private void Start()
     {
@@ -56,13 +61,24 @@ public class customer : MonoBehaviour
     }
     public void playEnterAnimation(GameObject prefab) // will fill in later with animation scripts
     {
+        float inMovt = speed * Time.deltaTime;
+        prefab.transform.position = Vector2.MoveTowards(transform.position, inScenePos, inMovt);
+        customerSpawner.customerPresent= true;
 
     }
     public void playLeaveAnimation(GameObject prefab)
     {
-        prefab.transform.position = new Vector2(-100f, 0);
+        Debug.Log("called leave anim");
+        Debug.Log("customer position prior to leave is " + prefab.transform.position);
+        float awayMovt = speed * Time.deltaTime;
+        prefab.transform.position = Vector2.MoveTowards(transform.position,outScenePos,awayMovt);
+        Debug.Log("customer position after leave is " + prefab.transform.position);
+        //prefab.transform.position = new Vector2(-100f, 0);
         customerSpawner.customerPresent = false;
-        Debug.Log("customerPresent? " + customerPresent);
+        
+        
+        
+
     }
     void buy()
     {
