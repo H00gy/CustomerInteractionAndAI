@@ -60,8 +60,8 @@ public class customer : MonoBehaviour
     }
     public void playLeaveAnimation(GameObject prefab)
     {
-        
-        customerPresent= false;// I would like to fix this later but not required now
+        prefab.transform.position = new Vector2(-100f, 0);
+        customerSpawner.customerPresent = false;
         Debug.Log("customerPresent? " + customerPresent);
     }
     void buy()

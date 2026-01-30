@@ -27,8 +27,7 @@ public class customerTriggers : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        //transaction = money.returnCurrencyAmount();
-        //Debug.Log("Start transaction value " + transaction);
+        
         if (customerAI.isBuying && other.CompareTag("item"))
         {
             if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
