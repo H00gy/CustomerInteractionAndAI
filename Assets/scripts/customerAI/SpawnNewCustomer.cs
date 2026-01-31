@@ -7,10 +7,12 @@ public class SpawnNewCustomer : MonoBehaviour
     public GameObject customerPrefab;
     public  bool customerPresent;
     static int spawnCount = 0;
+    resetPos reset; 
     private void Awake()
     {
 
         StartCoroutine(SpawnLoop());
+        reset = GetComponent<resetPos>();
 
     }
     private IEnumerator SpawnLoop()
@@ -28,6 +30,7 @@ public class SpawnNewCustomer : MonoBehaviour
     }
     public GameObject spawnCustomer()
     {
+        reset.resetPositions(); // in the actual game, this will just move to inventory
         GameObject newCustomer = Instantiate(customerPrefab);
         Debug.Log("spawned Customer");
         customerPresent= true;

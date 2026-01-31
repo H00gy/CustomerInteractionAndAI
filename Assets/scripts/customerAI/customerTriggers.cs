@@ -26,10 +26,12 @@ public class customerTriggers : MonoBehaviour
         }
         transaction = money.returnCurrencyAmount();
         Debug.Log("Start transaction value " + transaction);
+        
     }
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
+       
         if (customerAI.isBuying && other.CompareTag("item"))
         {
             if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
@@ -58,11 +60,26 @@ public class customerTriggers : MonoBehaviour
             }
             else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
             {
+                //moveOther(other.gameObject);
                 Debug.Log("I don't want that >:(");
+                //moveOther(other.gameObject);
                 customerAI.playLeaveAnimation(this.gameObject);
-                //customerSpawner.customerPresent = false;
+                
                 Destroy(this.gameObject);
             }
         }
     }
+    void moveOther(GameObject other) // because k
+    {
+        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
+        if (rb == null)
+        {
+            Debug.Log("No Rigidbody2D found");
+            return;
+        }
+
+        rb.linearVelocity = Vector2.zero;
+        rb.position = new Vector2(0, -1f); // instant
+    }
 }
+
