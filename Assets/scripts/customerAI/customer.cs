@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System.Transactions;
 
 public class customer : MonoBehaviour
 {
@@ -14,6 +15,9 @@ public class customer : MonoBehaviour
     public TMP_Text dialogue;
     public Sprite currentShape; // sets the want shape for this specific customer
     SpawnNewCustomer customerSpawner;
+    spawner itemSpawner;
+    currency money;
+    float transaction;
 
     // temp animation variables (this is all placeholder until I make animations for the actual game)
     public float speed = 5f;
@@ -26,9 +30,22 @@ public class customer : MonoBehaviour
         customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
         if (customerSpawner == null)
         {
-            Debug.Log("couldn't find customer span");
+            Debug.Log("couldn't find customer spawner");
             return;
         }
+        itemSpawner = GameObject.FindWithTag("gameManager").GetComponent<spawner>();
+        if (itemSpawner == null)
+        {
+            Debug.Log("couldn't find item spawner");
+            return;
+        }
+        money = GameObject.FindWithTag("currencyCount").GetComponent<currency>();
+        if (money == null)
+        {
+            Debug.Log("couldn't find currency");
+            return;
+        }
+        transaction = money.returnCurrencyAmount();
         newCustomer();
         
 
@@ -43,8 +60,8 @@ public class customer : MonoBehaviour
         //bargainMultiplier = reputationMeter.repValue;
 
         //this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
-        
-        buy(); // temp for testing
+        buy(); //temp for testing
+        //sell();
         /*
         // calls buying or selling
         bool buyOrSell = Random.value > 0.5f; // coin toss
@@ -113,16 +130,19 @@ public class customer : MonoBehaviour
     }
     void haggleChance()
     {
-       hagglePercent = 1 - reputationMeter.repValue;
+       hagglePercent = 1 - reputationMeter.repValue; // randomizes if they will haggle
        float randomValue = Random.value;
        
        if (randomValue < hagglePercent)
        {
-            //Debug.Log("haggle engaged");
+            Debug.Log("haggle engaged");
+            itemSpawner.spawnItem();
+            //float wantedPrice = 
+
        }
        else
        {
-            //Debug.Log("no haggle");
+            Debug.Log("no haggle");
        }
 
     }
