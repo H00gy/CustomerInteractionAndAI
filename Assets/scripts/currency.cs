@@ -11,6 +11,7 @@ public class currency : MonoBehaviour
     {
         // if there are more scenes, an if statement here for the first scene only
         currencyAmount = 100f;
+        
         currencyText.text = currencyAmount.ToString();
     }
     public void SetCurrency(float amount)
@@ -23,4 +24,5 @@ public class currency : MonoBehaviour
         Debug.Log("returnCurrency method amount " + currencyAmount);
         return currencyAmount;
     }
+
 }

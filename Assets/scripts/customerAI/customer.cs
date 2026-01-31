@@ -18,6 +18,7 @@ public class customer : MonoBehaviour
     spawner itemSpawner;
     currency money;
     float transaction;
+    public float lowRepPercentage = 1.3f;
 
     // temp animation variables (this is all placeholder until I make animations for the actual game)
     public float speed = 5f;
@@ -60,8 +61,8 @@ public class customer : MonoBehaviour
         //bargainMultiplier = reputationMeter.repValue;
 
         //this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
-        buy(); //temp for testing
-        //sell();
+        //buy(); //temp for testing
+        sell();
         /*
         // calls buying or selling
         bool buyOrSell = Random.value > 0.5f; // coin toss
@@ -126,18 +127,27 @@ public class customer : MonoBehaviour
 
     void sell()
     {
-        haggleChance();
+        GameObject soldItem = itemSpawner.spawnItem();
+        float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
+        float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
+        dialogue.text = "I want $" + wantedPrice;
+
+        
     }
-    void haggleChance()
+
+    /* 
+    void haggleChance() not going to use haggle chance rn, but its a good idea for later
     {
+
        hagglePercent = 1 - reputationMeter.repValue; // randomizes if they will haggle
        float randomValue = Random.value;
        
-       if (randomValue < hagglePercent)
+       if (randomValue < hagglePercent) // negative haggle
        {
             Debug.Log("haggle engaged");
-            itemSpawner.spawnItem();
-            //float wantedPrice = 
+            GameObject soldItem = itemSpawner.spawnItem();
+            // the wanted price increases based on the value 
+            float wantedPrice = (soldItem.GetComponent<itemPriceStorage>().price + (soldItem.GetComponent<itemPriceStorage>().price * hagglePercent)); 
 
        }
        else
@@ -146,10 +156,11 @@ public class customer : MonoBehaviour
        }
 
     }
-    
-   
-    
+    */
 
-    
+
+
+
+
 
 }
