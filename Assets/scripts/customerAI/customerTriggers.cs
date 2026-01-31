@@ -45,7 +45,7 @@ public class customerTriggers : MonoBehaviour
                 // money change
                 transaction += other.GetComponent<itemPriceStorage>().price;// adds price
                 Debug.Log("bought transaction value is " + transaction);
-                money.tempCurrentAmount= transaction;
+                money.SetCurrency(transaction);
                 Debug.Log("get current amount value is " + money.returnCurrencyAmount());
                 money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
                 

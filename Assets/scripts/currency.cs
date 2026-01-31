@@ -13,13 +13,14 @@ public class currency : MonoBehaviour
         currencyAmount = 100f;
         currencyText.text = currencyAmount.ToString();
     }
-    private void Update()
+    public void SetCurrency(float amount)
     {
-        currencyAmount = tempCurrentAmount;
+        currencyAmount = amount;
+        
     }
     public float returnCurrencyAmount()
     {
-        //Debug.Log("returnCurrency method amount " + currencyAmount);
+        Debug.Log("returnCurrency method amount " + currencyAmount);
         return currencyAmount;
     }
 }
