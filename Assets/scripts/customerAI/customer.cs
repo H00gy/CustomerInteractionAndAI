@@ -47,10 +47,15 @@ public class customer : MonoBehaviour
             return;
         }
         transaction = money.returnCurrencyAmount();
-        newCustomer();
+        StartCoroutine(firstCustomer());
         
 
 
+    }
+    IEnumerator firstCustomer()
+    {
+        yield return null; // wait one frame
+        newCustomer();
     }
     void newCustomer()
     {
