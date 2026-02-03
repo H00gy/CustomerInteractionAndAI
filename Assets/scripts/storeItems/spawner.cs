@@ -21,7 +21,6 @@ public class spawner : MonoBehaviour
         GameObject spawnedItem = Instantiate(itemPrefab);
         spawnCount++;
         spawnedItem.name = $"item_{spawnCount}";
-
         
         
         ItemInstance instance = spawnedItem.GetComponent<ItemInstance>();
@@ -30,12 +29,10 @@ public class spawner : MonoBehaviour
             Debug.LogWarning("Spawned item missing itemInstance component!");
             return null;
         }
-        //instance.Generate(); // calls its own generation
+        instance.Generate(); // calls its own generation
         lastInstance= spawnedItem;
-       
         checker.checkAuthenticity(instance);
         spawnedItem.GetComponent<itemPriceStorage>().price = checker.price;
-        Debug.Log(spawnedItem.name);
         return spawnedItem;
 
 

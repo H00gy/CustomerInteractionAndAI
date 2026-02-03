@@ -1,25 +1,16 @@
 using NUnit.Framework.Internal;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class ItemInstance : MonoBehaviour
 {
     [Header("Generators")]
     public shapePicker shapeP;
-    bool initialized = false;
+    
 
     void Awake()
     {
         // Rebind or clone components to ensure each watch instance has unique generator components
         shapeP = GetOrCloneComponent(shapeP);
-    }
-
-
-    void Start() // so generate isn't called before start()
-    {
-        initialized = true;
-        StartCoroutine(waitGen());
     }
 
     // Helper to clone prefab-level components or reuse instance-level ones
@@ -38,20 +29,9 @@ public class ItemInstance : MonoBehaviour
 
         return existing;
     }
-    IEnumerator waitGen()
-    {
-        yield return null;
-        shapeP = GetComponentInChildren<shapePicker>(true);
-        shapeP.pickRandomShape();
-    }
-    /*
+
     public void Generate()
     {
-        if (!initialized)
-        {
-            StartCoroutine(GenerateNextFrame());
-            return;
-        }
         // Always re-fetch the components within this instance, in case Awake() missed a runtime clone
         shapeP = GetComponentInChildren<shapePicker>(true);
 
@@ -64,10 +44,4 @@ public class ItemInstance : MonoBehaviour
         shapeP.sr.sprite = shapeP.sr.sprite;
 
     }
-    IEnumerator GenerateNextFrame()
-    {
-        yield return null;
-        Generate();
-    }
-    */
 }

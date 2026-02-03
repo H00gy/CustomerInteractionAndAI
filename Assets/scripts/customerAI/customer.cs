@@ -47,7 +47,7 @@ public class customer : MonoBehaviour
             return;
         }
         transaction = money.returnCurrencyAmount();
-        StartCoroutine(firstCustomer());    
+        StartCoroutine(firstCustomer());
         
 
 
@@ -132,18 +132,12 @@ public class customer : MonoBehaviour
 
     void sell()
     {
-        
-        StartCoroutine(sellAfterItemReady());
-        
-    }
-    IEnumerator sellAfterItemReady()
-    {
-        yield return null; // wait one frame
-        Debug.Log("sell is called");
         GameObject soldItem = itemSpawner.spawnItem();
         float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
         float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
         dialogue.text = "I want $" + wantedPrice;
+
+        
     }
 
     /* 
