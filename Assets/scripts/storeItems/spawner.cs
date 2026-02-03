@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using System.Collections.Generic;
 
 public class spawner : MonoBehaviour
 {
@@ -31,10 +33,16 @@ public class spawner : MonoBehaviour
         }
         instance.Generate(); // calls its own generation
         lastInstance= spawnedItem;
-        checker.checkAuthenticity(instance);
+        StartCoroutine(authenticatorPause(instance));  
         spawnedItem.GetComponent<itemPriceStorage>().price = checker.price;
         return spawnedItem;
 
+
+    }
+    IEnumerator authenticatorPause(ItemInstance instance)
+    {
+        yield return null;
+        checker.checkAuthenticity(instance);
 
     }
 }

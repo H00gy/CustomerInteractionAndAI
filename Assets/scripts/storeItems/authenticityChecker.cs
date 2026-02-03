@@ -74,4 +74,8 @@ public class authenticityChecker : MonoBehaviour
         return name.Replace("(Clone)", "").Trim().ToLowerInvariant();
 
     }
+    public float getPrice()
+    {
+        return price;
+    }
 }

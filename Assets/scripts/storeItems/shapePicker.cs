@@ -13,10 +13,9 @@ public class shapePicker : MonoBehaviour
 
     public void pickRandomShape()
     {
-        if (Input.GetKey(KeyCode.Space))
-        {
-            sr.sprite = shapes[Random.Range(0, shapes.Length)];
-            Debug.Log("shape picker sprite name is " + sr.sprite.name);
-        }
+        sr.sprite = shapes[Random.Range(0, shapes.Length)];
+        Debug.Log("shape picker sprite name is " + sr.sprite.name);
+
+
     }
 }
