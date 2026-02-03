@@ -24,7 +24,8 @@ public class customer : MonoBehaviour
     public float speed = 5f;
     public Vector2 outScenePos = new Vector2(-100f, 0);
     public Vector2 inScenePos = new Vector2(0, 0);
-    
+
+   
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
@@ -46,6 +47,7 @@ public class customer : MonoBehaviour
             Debug.Log("couldn't find currency");
             return;
         }
+        
         transaction = money.returnCurrencyAmount();
         StartCoroutine(firstCustomer());
         

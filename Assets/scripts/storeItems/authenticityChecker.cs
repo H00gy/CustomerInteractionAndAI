@@ -11,7 +11,10 @@ public class authenticityChecker : MonoBehaviour
      */
     public void checkAuthenticity(ItemInstance item)
     {
-        if (item == null) {
+        // this if statement breaks the spawner because no watch exists
+        // when the spawner is called externally, I need to find a solution 
+        // for this later *** 
+        if (item == null) { 
             Debug.Log("item ref null");
             return;
         }

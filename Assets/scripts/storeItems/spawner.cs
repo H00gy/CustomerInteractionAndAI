@@ -9,7 +9,7 @@ public class spawner : MonoBehaviour
     public GameObject lastInstance;
     public authenticityChecker checker;
 
-
+  
     // Update is called once per frame
     void Update()
     {
@@ -33,16 +33,24 @@ public class spawner : MonoBehaviour
         }
         instance.Generate(); // calls its own generation
         lastInstance= spawnedItem;
-        StartCoroutine(authenticatorPause(instance));  
+        checker.checkAuthenticity(instance);
+        //StartCoroutine(checkerRun(instance));  
         spawnedItem.GetComponent<itemPriceStorage>().price = checker.price;
         return spawnedItem;
 
 
     }
-    IEnumerator authenticatorPause(ItemInstance instance)
+    /*
+    IEnumerator checkerRun(ItemInstance instance)
     {
         yield return null;
         checker.checkAuthenticity(instance);
 
     }
+    IEnumerator returnPrice()
+    {
+        yield return null;
+        checker.getPrice();
+    }
+    */
 }
