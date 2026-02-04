@@ -98,7 +98,7 @@ public class customer : MonoBehaviour
         
         customerSpawner.customerPresent = false;
         prefab.transform.position = outScenePos;
-        
+        Destroy(this.gameObject);
         /*
         Debug.Log("called leave anim");
         Debug.Log("customer position prior to leave is " + prefab.transform.position);
