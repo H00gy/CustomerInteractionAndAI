@@ -137,17 +137,22 @@ public class customer : MonoBehaviour
         return group;
     }
 
-    public float sell()
+    public void sell()
     {
         GameObject soldItem = itemSpawner.spawnItem();
         thisCustomersSoldItem= soldItem;
-        float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
-        float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
-        dialogue.text = "I want $" + wantedPrice.ToString("F2");
+        soldItemPrice(thisCustomersSoldItem);
         buttons.SetActive(true);
-        return wantedPrice;
+        
 
         
+    }
+    public float soldItemPrice(GameObject thisItem)
+    {
+        float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
+        float wantedPrice = thisItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
+        dialogue.text = "I want $" + wantedPrice.ToString("F2");
+        return wantedPrice;
     }
 
     

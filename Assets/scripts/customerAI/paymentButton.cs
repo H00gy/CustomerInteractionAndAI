@@ -14,7 +14,7 @@ public class paymentButton : MonoBehaviour
     }
     public void buy()
     {
-        myMoney.SetCurrency(myMoney.returnCurrencyAmount() - customerAI.sell());
+        myMoney.SetCurrency(myMoney.returnCurrencyAmount() - customerAI.soldItemPrice(customerAI.thisCustomersSoldItem));
         customerAI.playLeaveAnimation(this.transform.parent.gameObject);
     }
     public void reject()
