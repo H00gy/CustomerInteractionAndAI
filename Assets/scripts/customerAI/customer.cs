@@ -74,8 +74,8 @@ public class customer : MonoBehaviour
 
         //this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
         //buy(); //temp for testing
-        sell();
-        /*
+        //sell();
+        
         // calls buying or selling
         bool buyOrSell = Random.value > 0.5f; // coin toss
         if (buyOrSell)
@@ -88,7 +88,7 @@ public class customer : MonoBehaviour
             Debug.Log("sell");
             sell();
         }
-        */
+        
         
         
     }

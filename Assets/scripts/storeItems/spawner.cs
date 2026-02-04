@@ -9,7 +9,12 @@ public class spawner : MonoBehaviour
     public GameObject lastInstance;
     public authenticityChecker checker;
 
-  
+    private void Awake()
+    {
+        spawnItem();
+        spawnItem();
+        spawnItem();
+    }
     // Update is called once per frame
     void Update()
     {
