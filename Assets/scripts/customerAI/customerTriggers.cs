@@ -50,7 +50,7 @@ public class customerTriggers : MonoBehaviour
                 money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
 
                 // rep change
-                reputationMeter.repValue += 0.05f;
+                reputationMeter.repValue += 0.005f;
                 
                 
                
