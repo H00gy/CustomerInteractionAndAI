@@ -21,6 +21,7 @@ public class customer : MonoBehaviour
     public GameObject buttons;
     float transaction;
     public float lowRepPercentage = 1.3f;
+    public GameObject thisCustomersSoldItem;
 
     // temp animation variables (this is all placeholder until I make animations for the actual game)
     public float speed = 5f;
@@ -139,6 +140,7 @@ public class customer : MonoBehaviour
     public float sell()
     {
         GameObject soldItem = itemSpawner.spawnItem();
+        thisCustomersSoldItem= soldItem;
         float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
         float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
         dialogue.text = "I want $" + wantedPrice.ToString("F2");
@@ -147,6 +149,7 @@ public class customer : MonoBehaviour
 
         
     }
+
     
 
     /* 
