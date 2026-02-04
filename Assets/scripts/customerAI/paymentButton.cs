@@ -2,11 +2,11 @@ using UnityEngine;
 
 public class paymentButton : MonoBehaviour
 {
-    bool buttonPressed;
+    //bool buttonPressed;
     customer customerAI;
     void Start()
     {
-        buttonPressed = false;
+        //buttonPressed = false;
     }
     public void buy()
     {

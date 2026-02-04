@@ -17,6 +17,8 @@ public class customer : MonoBehaviour
     SpawnNewCustomer customerSpawner;
     spawner itemSpawner;
     currency money;
+    paymentButton buttonsScript;
+    public GameObject buttons;
     float transaction;
     public float lowRepPercentage = 1.3f;
 
@@ -29,6 +31,8 @@ public class customer : MonoBehaviour
     private void Start()
     {
         bc = GetComponent<BoxCollider2D>();
+        buttonsScript = GetComponentInChildren<paymentButton>();
+        buttons.SetActive(false);
         customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
         if (customerSpawner == null)
         {
@@ -138,6 +142,7 @@ public class customer : MonoBehaviour
         float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
         float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
         dialogue.text = "I want $" + wantedPrice.ToString("F2");
+        buttons.SetActive(true);
 
         
     }
