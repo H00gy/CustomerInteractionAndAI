@@ -117,6 +117,14 @@ public class customer : MonoBehaviour
     {
         isBuying = true;
         currentShape = buyingGroup().want; // makes sure it's currently stored
+
+        if (GameObject.FindWithTag("item") == null)
+        {
+            //dialogue.text = "lmao you have nothing"; // not working
+            playLeaveAnimation(this.gameObject);
+            reputationMeter.repValue -= .01f;
+            return;
+        }
         
         if (isBuying == false)
         {

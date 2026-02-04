@@ -48,6 +48,9 @@ public class customerTriggers : MonoBehaviour
                 money.SetCurrency(transaction);
                 Debug.Log("get current amount value is " + money.returnCurrencyAmount());
                 money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
+
+                // rep change
+                reputationMeter.repValue += 0.05f;
                 
                 
                

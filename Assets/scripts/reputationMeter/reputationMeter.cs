@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static System.Runtime.CompilerServices.RuntimeHelpers;
 
 public class reputationMeter : MonoBehaviour
 {
@@ -17,6 +18,13 @@ public class reputationMeter : MonoBehaviour
     void Update()
     {
         reputation.value = repValue;
-        
+        // for debugging
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            Debug.Log("the current rep value is " + repValue);
+        }
+
     }
+
+    
 }

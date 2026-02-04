@@ -11,9 +11,11 @@ public class spawner : MonoBehaviour
 
     private void Awake()
     {
+        /*
         spawnItem();
         spawnItem();
         spawnItem();
+        */
     }
     // Update is called once per frame
     void Update()
