@@ -16,7 +16,7 @@ public class customer : MonoBehaviour
     public Sprite currentShape; // sets the want shape for this specific customer
     SpawnNewCustomer customerSpawner;
     spawner itemSpawner;
-    currency money;
+    public currency money;
     paymentButton buttonsScript;
     public GameObject buttons;
     float transaction;
@@ -136,16 +136,18 @@ public class customer : MonoBehaviour
         return group;
     }
 
-    void sell()
+    public float sell()
     {
         GameObject soldItem = itemSpawner.spawnItem();
         float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
         float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
         dialogue.text = "I want $" + wantedPrice.ToString("F2");
         buttons.SetActive(true);
+        return wantedPrice;
 
         
     }
+    
 
     /* 
     void haggleChance() not going to use haggle chance rn, but its a good idea for later

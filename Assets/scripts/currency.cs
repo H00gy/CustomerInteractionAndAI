@@ -17,6 +17,7 @@ public class currency : MonoBehaviour
     public void SetCurrency(float amount)
     {
         currencyAmount = amount;
+        currencyText.text = currencyAmount.ToString();
         
     }
     public float returnCurrencyAmount()
