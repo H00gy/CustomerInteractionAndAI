@@ -10,7 +10,7 @@ public class paymentButton : MonoBehaviour
     }
     public void buy()
     {
-
+         
     }
     public void reject()
     {
