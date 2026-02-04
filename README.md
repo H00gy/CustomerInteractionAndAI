@@ -1,2 +1,4 @@
 # CustomerInteractionAndAI
-customer AI behavior and player interaction system with those customers
+
+## Description 
+this is a demonstration for my customer interaction system for my upcoming game "Chrono-Vice". This system is built upon 2 AI behaviors, buying and selling. Buying is based off of randomized customer interests, to where customers have specific interests of what store items they want. Selling uses a reputation meter to determine offers customers will provide to the player so they can buy. 
