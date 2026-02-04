@@ -137,7 +137,7 @@ public class customer : MonoBehaviour
         GameObject soldItem = itemSpawner.spawnItem();
         float reputationMulitplier = lowRepPercentage - reputationMeter.repValue; //percentage to haggle
         float wantedPrice = soldItem.GetComponent<itemPriceStorage>().price * reputationMulitplier;
-        dialogue.text = "I want $" + wantedPrice;
+        dialogue.text = "I want $" + wantedPrice.ToString("F2");
 
         
     }
