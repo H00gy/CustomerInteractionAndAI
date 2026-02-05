@@ -12,7 +12,7 @@ public class customerTriggers : MonoBehaviour
     private void Start()
     {
         customerAI = GetComponent<customer>();
-        customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>();
+        customerSpawner = GameObject.FindWithTag("gameManager").GetComponent<SpawnNewCustomer>(); // finds in scene
         if (customerSpawner == null)
         {
             Debug.Log("couldn't find customer span");
@@ -47,15 +47,13 @@ public class customerTriggers : MonoBehaviour
                 Debug.Log("bought transaction value is " + transaction);
                 money.SetCurrency(transaction);
                 Debug.Log("get current amount value is " + money.returnCurrencyAmount());
-                money.currencyText.text = transaction.ToString("F2"); // currency count txt, ToString("F2") limits decimals
+                
 
                 // rep change
                 reputationMeter.repValue += 0.005f;
-                
-                
-               
-                customerSpawner.customerPresent = false; // safeguard 
-                // currency change will occur here, possibly also destroy npc
+
+                // safeguard 
+                customerSpawner.customerPresent = false; 
             }
             else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)
             {
@@ -63,26 +61,13 @@ public class customerTriggers : MonoBehaviour
             }
             else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
             {
-                //moveOther(other.gameObject);
                 Debug.Log("I don't want that >:(");
-                //moveOther(other.gameObject);
                 customerAI.playLeaveAnimation(this.gameObject);
                 
                 Destroy(this.gameObject);
             }
         }
     }
-    void moveOther(GameObject other) // because k
-    {
-        Rigidbody2D rb = other.GetComponentInParent<Rigidbody2D>();
-        if (rb == null)
-        {
-            Debug.Log("No Rigidbody2D found");
-            return;
-        }
-
-        rb.linearVelocity = Vector2.zero;
-        rb.position = new Vector2(0, -1f); // instant
-    }
+    
 }
 
