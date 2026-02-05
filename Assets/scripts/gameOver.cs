@@ -16,8 +16,8 @@ public class gameOver : MonoBehaviour
         {
             gameOverObj.SetActive(true);
         }
-
-        GetComponent<InputHandler>().enabled = false;
+        gameOverObj.SetActive(true);
+        GameObject.FindWithTag("gameManager").GetComponent<InputHandler>().enabled = false;
     }
 
     public void RestartGame()

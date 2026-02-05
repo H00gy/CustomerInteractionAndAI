@@ -15,19 +15,15 @@ public class currency : MonoBehaviour
         
         currencyText.text = currencyAmount.ToString();
 
-        gameEnd = GameObject.FindWithTag("gameOver").GetComponent<gameOver>(); // finds in scene
-        if (gameEnd == null)
-        {
-            Debug.Log("couldn't find gameOver");
-            return;
-        }
+        gameEnd = GetComponent<gameOver>();
+        
     }
     public void SetCurrency(float amount)
     {
         currencyAmount = amount;
         if (currencyAmount <= 0)
         {
-
+            gameEnd.gameOverEnd();
         }
         currencyText.text = currencyAmount.ToString("F2");
         
