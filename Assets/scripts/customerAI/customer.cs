@@ -7,24 +7,33 @@ using System.Transactions;
 
 public class customer : MonoBehaviour
 {
-    public BoxCollider2D bc;
+    // bool conditions
     public bool customerPresent;
-    public bool isBuying; 
-    public float hagglePercent;
+    public bool isBuying;
+
+    // spawners
+    SpawnNewCustomer customerSpawner;
+    spawner itemSpawner;
+    // customer wants
     public customerWantsGroup[] wants;
     public TMP_Text dialogue;
     public Sprite currentShape; // sets the want shape for this specific customer
-    SpawnNewCustomer customerSpawner;
-    spawner itemSpawner;
+
+    // related to currency/reputation
     public currency money;
-    paymentButton buttonsScript;
-    public GameObject buttons;
     float transaction;
     public float lowRepPercentage = 1.3f;
+    public float hagglePercent;
+
+    // buttons
+    paymentButton buttonsScript;
+    public GameObject buttons;
+
+    // misc
+    public BoxCollider2D bc;
     public GameObject thisCustomersSoldItem;
 
-    // temp animation variables (this is all placeholder until I make animations for the actual game)
-    public float speed = 5f;
+    // temp animation position variables (this is all placeholder until I make animations for the actual game)
     public Vector2 outScenePos = new Vector2(-100f, 0);
     public Vector2 inScenePos = new Vector2(0, 0);
 
@@ -54,7 +63,7 @@ public class customer : MonoBehaviour
         }
         
         transaction = money.returnCurrencyAmount();
-        StartCoroutine(firstCustomer());
+        StartCoroutine(firstCustomer()); // safeguard
         
 
 
@@ -66,15 +75,8 @@ public class customer : MonoBehaviour
     }
     void newCustomer()
     {
-        Debug.Log("called this");
-        //customerSpawner.spawnCustomer();
         // sets placement
         customerPresent = true;
-        //bargainMultiplier = reputationMeter.repValue;
-
-        //this.transform.position = new Vector2(0f, 0.81f); // temp since I don't have anim methods done //changed from this.
-        //buy(); //temp for testing
-        //sell();
         
         // calls buying or selling
         bool buyOrSell = Random.value > 0.5f; // coin toss
@@ -87,9 +89,7 @@ public class customer : MonoBehaviour
         {
             Debug.Log("sell");
             sell();
-        }
-        
-        
+        }      
         
     }
     
@@ -99,18 +99,6 @@ public class customer : MonoBehaviour
         customerSpawner.customerPresent = false;
         prefab.transform.position = outScenePos;
         Destroy(this.gameObject);
-        /*
-        Debug.Log("called leave anim");
-        Debug.Log("customer position prior to leave is " + prefab.transform.position);
-        float awayMovt = speed * Time.deltaTime;
-        prefab.transform.position = Vector2.MoveTowards(transform.position,outScenePos,awayMovt);
-        Debug.Log("customer position after leave is " + prefab.transform.position);
-        //prefab.transform.position = new Vector2(-100f, 0);
-        */
-        
-        
-        
-        
 
     }
     void buy()
@@ -118,9 +106,8 @@ public class customer : MonoBehaviour
         isBuying = true;
         currentShape = buyingGroup().want; // makes sure it's currently stored
 
-        if (GameObject.FindWithTag("item") == null)
+        if (GameObject.FindWithTag("item") == null) // so buy() doesn't get stuck if the player has no inventory
         {
-            //dialogue.text = "lmao you have nothing"; // not working
             playLeaveAnimation(this.gameObject);
             reputationMeter.repValue -= .01f;
             return;
@@ -130,9 +117,6 @@ public class customer : MonoBehaviour
         {
             return;
         }
-        
-        
-
 
     }
     public customerWantsGroup buyingGroup()
@@ -151,9 +135,7 @@ public class customer : MonoBehaviour
         thisCustomersSoldItem= soldItem;
         soldItemPrice(thisCustomersSoldItem);
         buttons.SetActive(true);
-        
 
-        
     }
     public float soldItemPrice(GameObject thisItem)
     {
@@ -164,7 +146,6 @@ public class customer : MonoBehaviour
     }
 
     
-
     /* 
     void haggleChance() not going to use haggle chance rn, but its a good idea for later
     {
@@ -187,10 +168,5 @@ public class customer : MonoBehaviour
 
     }
     */
-
-
-
-
-
 
 }
