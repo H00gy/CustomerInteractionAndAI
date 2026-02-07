@@ -6,11 +6,13 @@ public class reputationMeter : MonoBehaviour
 {
     Slider reputation;
     public static float repValue = 0.75f;
-    public float bargainModifier; 
+    public float bargainModifier;
+    gameOver gameOverObj;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         reputation= GetComponent<Slider>();
+        gameOverObj = GetComponent<gameOver>();
         reputation.value = repValue;
     }
 
@@ -18,11 +20,19 @@ public class reputationMeter : MonoBehaviour
     void Update()
     {
         reputation.value = repValue;
+        if (repValue <= 0)
+        {
+            gameOverObj.gameOverEnd();
+        }
+        
+
         // for debugging
+        /*
         if (Input.GetKeyDown(KeyCode.R))
         {
             Debug.Log("the current rep value is " + repValue);
         }
+        */
 
     }
 
