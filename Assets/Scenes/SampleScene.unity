@@ -1861,6 +1861,7 @@ GameObject:
   - component: {fileID: 1787857441}
   - component: {fileID: 1787857442}
   - component: {fileID: 1787857443}
+  - component: {fileID: 1787857444}
   m_Layer: 5
   m_Name: reputation
   m_TagString: Untagged
@@ -1954,6 +1955,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bargainModifier: 0
+--- !u!114 &1787857444
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787857440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b2e7640d2409d74ebcce0371974f8d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  gameOverObj: {fileID: 1412169213}
 --- !u!1 &1863439742
 GameObject:
   m_ObjectHideFlags: 0
