@@ -8,6 +8,7 @@ public class customerTriggers : MonoBehaviour
     currency money;
     float transaction;
     SpawnNewCustomer customerSpawner;
+    int correctWantCount;
     
     private void Start()
     {
@@ -34,11 +35,34 @@ public class customerTriggers : MonoBehaviour
        
         if (customerAI.isBuying && other.CompareTag("item"))
         {
-            if (other.gameObject.GetComponentInChildren<SpriteRenderer>() != null && other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite == customerAI.currentShape) // checks if sr exists and then compares want and obj
+            for (int i = 0; i < other.transform.childCount; i++)
+            {
+                if (other.transform.GetChild(i).GetComponent<SpriteRenderer>() != null && other.transform.GetChild(i).GetComponent<SpriteRenderer>().sprite?.name == customerAI.currentShape?.name) // checks if sr exists and then compares want and obj, 
+                { // also ? to the left of the if statement is called null condition operator, it means "if thing to the left null, register as null and dont crash"
+                    Debug.Log("Customer Want Success");
+
+                    correctWantCount++;
+
+
+                    // rep change
+                    reputationMeter.repValue += 0.005f;
+
+
+                }
+                else if (other.transform.GetChild(i).GetComponent<SpriteRenderer>() == null)
+                {
+                    Debug.Log("Customer Want sr not found");
+                    Debug.Log("item sr not found");
+                }
+            }
+
+            if (correctWantCount > 0)
             {
                 // customer leaving
                 Debug.Log("Thank you!");
+                // leave satisfied
                 Destroy(other.gameObject);
+
                 customerAI.playLeaveAnimation(this.gameObject);
                 Destroy(this.gameObject);
 
@@ -47,23 +71,18 @@ public class customerTriggers : MonoBehaviour
                 Debug.Log("bought transaction value is " + transaction);
                 money.SetCurrency(transaction);
                 Debug.Log("get current amount value is " + money.returnCurrencyAmount());
-                
-
-                // rep change
-                reputationMeter.repValue += 0.005f;
 
                 // safeguard 
-                customerSpawner.customerPresent = false; 
+                customerSpawner.customerPresent = false;
             }
-            else if (other.gameObject.GetComponentInChildren<SpriteRenderer>() == null)
+
+            else if (correctWantCount <= 0)
             {
-                Debug.Log("item sr not found");
-            }
-            else if(other.gameObject.GetComponentInChildren<SpriteRenderer>().sprite != customerAI.currentShape)
-            {
+                Debug.Log("Customer Want fail");
                 Debug.Log("I don't want that >:(");
+                Debug.Log("want sprite name" + customerAI.currentShape.name);
                 customerAI.playLeaveAnimation(this.gameObject);
-                
+
                 Destroy(this.gameObject);
             }
         }
